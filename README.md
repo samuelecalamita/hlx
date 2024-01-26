@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# Edge Delivery Service Learning Project
+This is a learning project for the Edge Delivery Service. It is based on the [AEM Boilerplate](https://github.com/adobe/aem-boilerplate) template.
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--hlx--samuelecalamita.hlx.page/
+- Live: https://main--hlx--samuelecalamita.hlx.live/
 
 ## Installation
 
