@@ -20,9 +20,9 @@ class Accordion {
 
     if (this.isClosing || !this.details.open) {
       this.open();
-    } else if (this.isExpanding || this.details.open) {
-      this.shrink();
+      return;
     }
+    if (this.isExpanding || this.details.open) this.shrink();
   }
 
   shrink() {
@@ -65,7 +65,7 @@ class Accordion {
       height: [startHeight, endHeight]
     }, {
       duration: 400,
-      easing: 'ease-out'
+      easing: 'ease-in-out'
     });
 
     this.animation.onfinish = () => this.onAnimationFinish(true);
@@ -77,7 +77,8 @@ class Accordion {
     this.animation = null;
     this.isClosing = false;
     this.isExpanding = false;
-    this.details.style.height = this.details.style.overflow = '';
+    this.details.style.removeProperty('height');
+    this.details.style.removeProperty('overflow');
   }
 }
 
