@@ -15,7 +15,19 @@ export class Icon extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render();
+    this.lazyRender();
+  }
+
+  lazyRender() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          this.render();
+          observer.disconnect();
+        }
+      });
+    });
+    observer.observe(this);
   }
 
   async render() {
