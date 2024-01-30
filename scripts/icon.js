@@ -20,7 +20,7 @@ export class Icon extends HTMLElement {
 
   async render() {
     const svg = await this.fetchIcon();
-    this.shadowRoot.innerHTML = `<style>:host{display:inline-block;width:50px;height:50px;}svg{display:inline-block;width:100%;height:100%;fill:currentColor;}</style>${svg}`;
+    this.shadowRoot.innerHTML = `<style>:host{display:inline-block;width:50px;height:50px;}svg{display:inline-block;width:100%;height:100%;stroke:currentColor;}</style>${svg}`;
   }
 
   async fetchIcon() {
