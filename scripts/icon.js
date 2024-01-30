@@ -6,10 +6,10 @@ export class Icon extends HTMLElement {
     this.shadowRoot = this.shadowRoot || this.attachShadow({mode: "open"})
   }
 
-  get src() {
-    const srcValue = this.getAttribute('src');
+  get name() {
+    const srcValue = this.getAttribute('name');
     if (!srcValue) {
-      throw new Error('Icon must have a src attribute');
+      throw new Error('Icon must have a name attribute');
     }
     return srcValue;
   }
@@ -24,7 +24,7 @@ export class Icon extends HTMLElement {
   }
 
   async fetchIcon() {
-    const response = await fetch(this.src);
+    const response = await fetch(`${window.hlx.codeBasePath}/icons/${this.name}.svg`);
     const textResponse = await response.text();
     return textResponse;
   }

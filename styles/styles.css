@@ -106,6 +106,8 @@ code, pre {
 
 code {
   padding: .125em;
+  background-color: var(--light-color);
+  border-radius: 4px;
 }
 
 pre {

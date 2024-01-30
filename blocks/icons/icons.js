@@ -10,7 +10,7 @@ export default function decorate(block) {
     });
     
     iconContainer.classList.add('icon-container');
-    icon.setAttribute('src', `${window.hlx.codeBasePath}/icons/${iconName}.svg`);
+    icon.setAttribute('name', iconName);
     icon.classList.add('icon-component');
     iconLabel.classList.add('icon-label');
     iconLabel.innerText = iconName;
