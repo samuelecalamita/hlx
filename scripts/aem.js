@@ -12,6 +12,8 @@
 
 /* eslint-env browser */
 
+import { Icon } from "./icon.js";
+
 /**
  * log RUM if part of the sample.
  * @param {string} checkpoint identifies the checkpoint in funnel
@@ -165,6 +167,16 @@ function init() {
   window.addEventListener('error', (event) => {
     sampleRUM('error', { source: event.filename, target: event.lineno });
   });
+
+  registerCustomElements();
+}
+
+
+/**
+ * Define custom elements.
+ */
+function registerCustomElements() {
+  customElements.define('icon-component', Icon);
 }
 
 /**
@@ -403,12 +415,11 @@ function decorateIcon(span, prefix = '', alt = '') {
   const iconName = Array.from(span.classList)
     .find((c) => c.startsWith('icon-'))
     .substring(5);
-  const img = document.createElement('img');
-  img.dataset.iconName = iconName;
-  img.src = `${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`;
-  img.alt = alt;
-  img.loading = 'lazy';
-  span.append(img);
+
+  const icon = document.createElement('icon-component');
+  icon.setAttribute('src', `${window.hlx.codeBasePath}${prefix}/icons/${iconName}.svg`);
+  icon.classList.add('icon-component');
+  span.append(icon);
 }
 
 /**
