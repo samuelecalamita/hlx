@@ -1,2 +1,4 @@
 mountpoints:
   /: https://drive.google.com/drive/folders/1-dR8fIGPoq9dTi312rdn3QgunqiFpB7A
+Folders:
+  /styleguide: /styleguide/index.html
